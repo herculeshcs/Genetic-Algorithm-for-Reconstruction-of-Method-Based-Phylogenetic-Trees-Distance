@@ -1,0 +1,25 @@
+Algoritmo genético(AG) e uma meta heuristica inspirada na evolução para resolver problemas de otimização, podemos descrever o AG da seguinte forma:
+// coloca uma lista aqui ^^
+Seja f(a) uma função que avalia a qualidade da solução a,S uma condição de parada, P(a_1,a_2,....a_n) um conjunto de soluções para um problema:
+
+1-Geramos uma população inicial P de soluçãoes  para o problema.
+2-Selecionamos individuos de P para serem os pais da nova geração com base no valor de f.
+3-Fazemos os cruzamentos entre os pais e os individuos de P, e geramos um conjunto de indiduos G, que representa a nova geração.
+4-P<-G.
+3-Se nenhuma condição de pararda S for atingida então volte para o Passo 2.
+
+Nossa implementação do algoritmo genético para o problema de construção da arvores filogenéticas pode ser descrito da seguinte forma:
+Seja uma matriz de distancias M entre os objetos X(x_1,x_2,...x_n) , SM de todos os elementos da matriz M :
+1-Gere uma população inicial P(a_1,a_2,....a_n) a_i(V,E) onde V é o conjunto de vertices que compõe a_i e E o conjunto de arestas que compõe a_i,cada a_i onde i!=n é uma arvore valida gerada aleatoriamente e a_n é uma arvore gerada pelo NJ.
+2-Ordene a P e maneira não decrescente usando o valor de F para cada elemento de P, seja F(a)=|SM-sum(a)| para todo a pertencente a P, sum(a) é a soma das ditancias entre todos os nós que representão objetos X na arvore.
+3- Seja P_t(a_1,a_2 .. a_t) o conjunto dos t primeiros elementos de P, se f(y)>f(a_1) então t<-a_1 .
+4- Faça o cruzamento de todos os elementos de P_t com os elementos de P.
+	O cruzamento ente a_i e a_j, é feito da seguinte maneira primeira construimos o  grafo G(A,V) sendo conjunto A de arestas que contem todas as arestas de a_i e a_j e V(a_i(V) U a_j(V)).
+	Faça o algoritmo de Kruskal(G(A,V)) só que escolhendo as arestas aleatoriamente.
+5- Enquanto o numero de gerações não for atingido ou f(y)=0 volte a o passo 2.
+6- y é uma arvore que representa a matriz m.
+
+
+
+
+
